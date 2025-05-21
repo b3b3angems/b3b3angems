@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>الصفحة الثانية</title>
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      text-align: center;
+      font-family: Arial;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #00b894;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #00cec9;
+      box-shadow: 0 0 10px #00cec9, 0 0 40px #00cec9, 0 0 80px #00cec9;
+      transition: 0.3s ease;
+    }
+
+    #clock {
+      margin-top: 60px;
+      font-size: 24px;
+      color: #00cec9;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>مرحبًا بك في الصفحة الثانية!</h1>
+  <p>هذه هي الصفحة الثانية من موقعك</p>
+
+  <a href="index.html" style="text-decoration: none;">
+    <button>ارجع إلى الصفحة الرئيسية</button>
+  </a>
+
+  <div id="clock"></div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      let hours = now.getHours();
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const seconds = now.getSeconds().toString().padStart(2, '0');
+      const ampm = hours >= 12 ? 'م' : 'ص';
+
+      hours = hours % 12;
+      hours = hours ? hours : 12;
+
+      const timeString = `${hours}:${minutes}:${seconds} ${ampm}`;
+      document.getElementById('clock').textContent = 'الساعة الآن: ' + timeString;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+
+</body>
+</html>
